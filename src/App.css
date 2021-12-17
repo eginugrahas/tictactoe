@@ -19,6 +19,9 @@
 }
 
 /* Board */
+.status {
+  margin: 20px;
+}
 .board-row:after {
   clear: both;
   content: "";
