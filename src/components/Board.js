@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Square from './Square'
+import iconX from '../images/icon-x.png'
+import iconO from '../images/icon-o.png'
+
 
 export default class Board extends Component {
     constructor(props){
@@ -15,7 +18,7 @@ export default class Board extends Component {
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        squares[i] = this.state.xIsNext ? <img src={iconX} /> : <img src={iconO} />;
         this.setState({
             squares: squares,
             xIsNext: !this.state.xIsNext,
@@ -34,7 +37,7 @@ export default class Board extends Component {
         if (winner) {
             status = 'Winner: ' + winner;
         } else {
-            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+            status = 'Next player: ' + (this.state.xIsNext ? <img src={iconX} /> : <img src={iconO} />);
         }
 
         return (
@@ -79,63 +82,3 @@ function calculateWinner(squares) {
     }
     return null;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { Component } from 'react'
-// import Square from './Square';
-
-// export default class Board extends Component {
-//     renderSquare(i){
-//         return <Square value={this.props.squares[i]}
-//         onClick={()=>this.props.onClick(i)}
-//         />
-//     }
-    
-//     render() {
-//         return (
-//             <div>
-//                 <div className="board-row">
-//                     {this.renderSquare(0)}
-//                     {this.renderSquare(1)}
-//                     {this.renderSquare(2)}
-//                 </div>
-//                 <div className="board-row">
-//                     {this.renderSquare(3)}
-//                     {this.renderSquare(4)}
-//                     {this.renderSquare(5)}
-//                 </div>
-//                 <div className="b-row">
-//                     {this.renderSquare(6)}
-//                     {this.renderSquare(7)}
-//                     {this.renderSquare(8)}
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
-
