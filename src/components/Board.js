@@ -33,16 +33,12 @@ export default class Board extends Component {
     
     render() {
         const winner = calculateWinner (this.state.squares);
-        let status;
-        if (winner) {
-            status = 'Winner: ' + winner;
-        } else {
-            status = 'Next player: ' + (this.state.xIsNext ? <img src={iconX} /> : <img src={iconO} />);
-        }
+        const turn = 'Next player: ' + (this.state.xIsNext ? <img src={iconX} /> : <img src={iconO} />);
 
         return (
             <div>
-                <div className="status">{status}</div>
+                <div className="next-turn">{turn}</div>
+                <div className="winner">{winner}</div>
                 <div className="board-row">
                 {this.renderSquare(0)}
                 {this.renderSquare(1)}
@@ -81,4 +77,4 @@ function calculateWinner(squares) {
       }
     }
     return null;
-  }
+}
