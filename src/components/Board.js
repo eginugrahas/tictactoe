@@ -28,8 +28,7 @@ export default class Board extends Component {
                     {this.renderSquare(6)}
                     {this.renderSquare(7)}
                     {this.renderSquare(8)}
-                </div>
-                
+                </div> 
             </div>
         )
     }

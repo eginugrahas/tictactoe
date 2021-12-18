@@ -16,13 +16,15 @@ body {
   color: white;
 }
 
+/* App */
 .game-container {
   height: 100vh;
-  width: 90vw;
-  background-image: url(./images/bg-blackboard.png);
+  width: 100vw;
+  background-image: url(../public/images/bg-blackboard.png);
   background-repeat: no-repeat;
   background-position-x: center;
   background-size: 100vw 100vh;
+  border: 1px solid red;
 
   display: flex;
   flex-direction: column;
@@ -38,12 +40,56 @@ body {
   text-decoration: underline;
   margin: 2.5rem 0 0.5rem 0;
 }
+
+/* Menu */
+.board-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-options [type=radio] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.board-options [type=radio] + img {
+  cursor: pointer;
+}
+
+.board-options [type=radio]:checked + img {
+  padding: 0.5rem;
+  outline: 2px double white;
+}
+
+.size-options {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 2rem;
+  margin: 2rem 0;
+}
+.size-options img {
+  width: 7rem;
+  height: 7rem;
+}
+
+#start {
+  font-size: 3rem;
+}
+#start:hover{
+  cursor: pointer;
+}
+
+
 /* Square */
 .square {
   background: transparent;
-  border-image-source: url(./images/border-line.png);
-  border-image-slice:27 27 27 27;
-  border-image-width:20px 20px 20px 20px;
+  border-image-source: url(../public/images/border-line.png);
+  border-image-slice:30;
+  border-image-width:1.5rem;
   border-image-outset:5px;
   border-image-repeat:stretch stretch;
   border-style: solid;
@@ -51,8 +97,8 @@ body {
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   text-align: center;
 
   font-family: 'Colored Crayons';
