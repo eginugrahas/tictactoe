@@ -6,6 +6,9 @@ function App() {
   return (
     <div>
       <div className="game-container">
+        <div className='title'>
+          <h1>Tic Tac Toe</h1>
+        </div>
         <Game />
       </div>
       
