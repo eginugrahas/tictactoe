@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Square from './Square'
-import iconX from '../images/icon-x.png'
-import iconO from '../images/icon-o.png'
 
 
 export default class Board extends Component {
@@ -18,7 +16,7 @@ export default class Board extends Component {
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
-        squares[i] = this.state.xIsNext ? <img src={iconX} /> : <img src={iconO} />;
+        squares[i] = this.state.xIsNext ? "X" : "O";
         this.setState({
             squares: squares,
             xIsNext: !this.state.xIsNext,
@@ -32,8 +30,8 @@ export default class Board extends Component {
       };
     
     render() {
-        const winner = calculateWinner (this.state.squares);
-        const turn = 'Next player: ' + (this.state.xIsNext ? <img src={iconX} /> : <img src={iconO} />);
+        const winner = 'Winner: ' + calculateWinner(this.state.squares);
+        const turn = 'Next player: ' + (this.state.xIsNext ? "X" : "O");
 
         return (
             <div>
