@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Square from './Square';
+import Square from '../components/Square';
 
-export default class Board2 extends Component {
+export default class Board3 extends Component {
     renderSquare(i){
         return <Square value={this.props.squares[i]}
         onClick={()=>this.props.onClick(i)}
@@ -9,10 +9,10 @@ export default class Board2 extends Component {
     }
     render() {
         return (
-            <div>
+            <div className='board'>
                 <div className="board-info">
-                    <p>Game Size: 3x3</p>
-                    <p>Place 3 in a row</p>
+                    <p>Game Size: 5x5</p>
+                    <p>Place 5 in a row</p>
                 </div>
                 <div className="board-row">
                 {this.renderSquare(0)}

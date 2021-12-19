@@ -1,20 +1,23 @@
-
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import Game from './components/Game';
-import Game2 from './components/Game2';
-import Menu from './components/Menu';
+import MainMenu from './components/MainMenu';
+import Game from './Game/Game';
+import Game2 from './Game/Game2';
+import Game3 from './Game/Game3';
+import Game4 from './Game/Game4';
 
 function App() {
   return (
-    <div>
-      <div className="game-container">
-        <div className='title'>
-          <h1>Tic Tac Toe</h1>
-        </div>
-        <Game />
-      </div>
-      
-    </div>
+      <Router>
+        <Routes>
+          <Route path='/' exact element={<MainMenu />} />
+          <Route path='/game' exact element={<Game />} />
+          <Route path='/game2' exact element={<Game2 />} />
+          <Route path='/game3' exact element={<Game3 />} />
+          <Route path='/game4' exact element={<Game4 />} />
+        </Routes>
+      </Router>
   );
 }
 

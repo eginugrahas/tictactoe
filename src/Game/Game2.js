@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import Board from './Board';
+import React, { Component } from 'react';
+import Board2 from './Board2';
 
-export default class Game extends Component {
+export default class Game2 extends Component {
     constructor(props) {
         super(props);
         this.state = {
             xIsNext: true,
             stepNumber: 0,
             history: [
-                { squares: Array(9).fill(null) }
+                { squares: Array(15).fill(null) }
             ]
         }
     }
@@ -35,7 +35,7 @@ export default class Game extends Component {
     jumpTo(step) {
         this.setState({
           history: [{
-            squares: Array(9).fill(null),
+            squares: Array(15).fill(null),
           }],
           stepNumber: step,
           xIsNext: (step%2) === 0,
@@ -57,7 +57,7 @@ export default class Game extends Component {
             }
           });
         let status;
-        if (calculateWinner(current.squares) === 9) {
+        if (calculateWinner(current.squares) === 15) {
             status = 'Tie Game! Reset?';
           } else if (calculateWinner(current.squares) != null) {
             status = 'Winner: ' + calculateWinner(current.squares);
@@ -68,13 +68,19 @@ export default class Game extends Component {
 
         return (
             <div className="game">
+                <div className='title'>
+                    <h1>Tic Tac Toe</h1>
+                </div>
                 <div className="game-board">
-                    <Board onClick={(i) => this.handleClick(i)}
+                    <Board2 onClick={(i) => this.handleClick(i)}
                         squares={current.squares} />
                 </div>
                 <div className="game-info">
                     <div className='status'>{status}</div>
                     <button>{moves}</button>
+                </div>
+                <div className="main-menu">
+                  <button><a href="/">MENU</a></button>
                 </div>
             </div>
         )
@@ -83,28 +89,32 @@ export default class Game extends Component {
 
 function calculateWinner(squares) {
     const lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
+        [0,1,2,3],
+        [4,5,6,7],
+        [8,9,10,11],
+        [12,13,14,15],
+        [0,5,10,15],
+        [3,6,9,12],
+        [0,4,8,12],
+        [1,5,9,13],
+        [2,6,10,14],
+        [3,7,11,15],
+        
     ];
 
     for (let i = 0; i < lines.length; i++) {
-        const [a, b, c] = lines[i];
-        if (squares[a] &&
-            squares[a] === squares[b] 
-            && squares[b] === squares[c]) {
-            return squares[a];
+        const [a,b,c,d] = lines[i];
+        if (squares[a] && 
+          squares[a] === squares[b] 
+          && squares[a] === squares[c]
+          && squares[a] === squares[d]) {
+          return squares[a];
         }
     }
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 15; i++) {
         if (squares[i] === null) {
           return null;
         }
     }
-    return 9;
+    return 15;
 }
