@@ -36,7 +36,7 @@ function MainMenu() {
                         </div> 
                     </div>
                     <div className="credit">
-                        <p>Created by <a href="https://igeegi.my.id">igeegi</a></p>
+                        <p>Created by <a href="https://igeegi.my.id" target="_blank">igeegi</a></p>
                     </div>
                     </div>
                 </div>
